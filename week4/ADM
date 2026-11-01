@@ -1,0 +1,38 @@
+package week4;
+
+public class ADM {
+
+    private BankAccount account;
+
+    public ADM(BankAccount account) {
+        this.account = account;
+    }
+    public void checkBalance() {
+        System.out.println("ยอดเงินในบัญชี: " + account.getBalance() + " บาท");// เชื่อมโยงกับ BankAccount เพื่อเรียกใช้ getBalance() และแสดงยอดเงินในบัญชี
+    }
+    
+    public void deposit(double amount) {
+        account.deposit(amount);
+        //System.out.println("ฝากเงิน: " + amount);
+    }
+
+    public void withdraw(double amount) {
+        account.withdraw(amount);
+        //System.out.println("ถอนเงิน: " + amount);
+    }
+
+    public void showInfoamation() {
+        account.showInfo();
+        //System.out.println("ชื่อบัญชีส่วนตัว: ");
+    }
+
+    public boolean checkAccount(String accountNo, int pin) {
+        int acc_no = Integer.parseInt(accountNo);
+        System.out.println("ตรวจสอบรหัสผ่าน");
+        if(acc_no == 5555 && pin == 3333) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+}
