@@ -1,0 +1,61 @@
+package week4;
+
+public class BankAccount {
+
+    private String accountNo;
+    private String ownerName;
+    private double balance;
+    private int pin;
+    
+    public BankAccount(String accountNo, String ownerName, double balance, int pin) {
+        this.accountNo = accountNo;
+        this.ownerName = ownerName;
+        this.balance = balance;
+        this.pin = pin;
+    }
+
+    public boolean Authenticate(String accountNo, int pin) {
+        this.accountNo = accountNo;
+        this.ownerName = "fluke";
+        return true;
+    }
+    //public String getAccountNo(double accountNo) {
+        //return String.valueOf(accountNo);
+    //}
+    public String getAccountNo() {
+        return String.valueOf(accountNo);
+    }
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("ฝากเงิน: " + amount + " บาท");
+        } else {
+            System.out.println("จำนวนเงินฝากไม่ถูกต้อง");
+        }
+    }
+
+    public void withdraw(double amount) {
+        
+        if(amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("ถอนเงิน0จำนวน: " + amount + " บาท");
+        } else {
+            System.out.println("ระบุจำนวนเงินไม่ถูกต้อง");
+        }
+    }
+    public void showInfo() {
+        System.out.println("ข้อมูลสถานะบัญชี:");
+        System.out.println("ชื่อบัญชี: " + ownerName);
+        System.out.println("หมายเลขบัญชี: " + accountNo);
+        System.out.println("ยอดเงินคงเหลือ: " + balance);
+    }
+
+}
